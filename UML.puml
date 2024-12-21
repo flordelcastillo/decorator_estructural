@@ -1,0 +1,38 @@
+@startuml
+class Queso {
++ <<Create>> Queso(Hamburguesa)
++ String getDescripcion()
+}
+
+interface Hamburguesa {
+~ String getDescripcion()
+}
+
+abstract class DecoradorHamburguesa {
+# Hamburguesa hamburguesa
++ <<Create>> DecoradorHamburguesa(Hamburguesa)
++ String getDescripcion()
+}
+
+
+class HamburguesaBase {
++ String getDescripcion()
+}
+
+class Tomate {
++ <<Create>> Tomate(Hamburguesa)
++ String getDescripcion()
+}
+
+class Lechuga {
++ <<Create>> Lechuga(Hamburguesa)
++ String getDescripcion()
+}
+
+
+DecoradorHamburguesa <|-- Queso
+Hamburguesa <|.. DecoradorHamburguesa
+Hamburguesa <|.. HamburguesaBase
+DecoradorHamburguesa <|-- Tomate
+DecoradorHamburguesa <|-- Lechuga
+@enduml
